@@ -1,0 +1,42 @@
+<%= form_for(appwebexemp) do |f| %>
+  <% if appwebexemp.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(appwebexemp.errors.count, "error") %> prohibited this appwebexemp from being saved:</h2>
+
+      <ul>
+      <% appwebexemp.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %>
+    <%= f.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= f.label :id_seq %>
+    <%= f.text_field :id_seq %>
+  </div>
+
+  <div class="field">
+    <%= f.label :endereco %>
+    <%= f.text_area :endereco %>
+  </div>
+
+  <div class="field">
+    <%= f.label :preco %>
+    <%= f.text_field :preco %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

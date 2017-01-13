@@ -1,0 +1,23 @@
+<%=link_to 'Novo', action: 'new'%>
+<table border="1" class="table table-hover">
+  <tr>
+    <th>Nome</th>
+    <th>Endereço</th>
+    <th>Especialidade</th>
+    <th colspan="3">operações</th>
+  </tr>
+  <% @restaurantes.each do |restaurante| %>
+      <tr>
+        <td><%= restaurante.nome %> </td>
+        <td><%= restaurante.endereco %> </td>
+        <td><%= restaurante.especialidade %> </td>
+        <td><%= link_to 'Detalhe', restaurante_path(restaurante) %></td>
+        <td><%= link_to 'Editar', action: 'edit', id: restaurante %>
+        </td>
+
+      </tr>
+  <% end %>
+
+</table>
+<%=paginate @restaurantes%>
+<br/>

@@ -1,0 +1,30 @@
+<h1>Exibindo restaurantes</h1>
+<p>
+  <b>Nome: </b>
+  <%=@restaurante.nome%>
+</p>
+<p>
+  <b>Endereço: </b>
+  <%=@restaurante.endereco%>
+</p>
+<p>
+  <b>Especialidade: </b>
+  <%=@restaurante.especialidade%>
+</p>
+<b>Nota média: </b>
+<%= valor_formatado2(@restaurante.qualificacao.average(:nota)) %> <br/>
+<b>Qualificações: </b>
+<%= @restaurante.qualificacao.count %> <br/>
+<b>Preço médio: </b>
+<%= valor_formatado2(@restaurante.qualificacao.average(:valor_gasto)) %> <br/><br/>
+<p>
+  <b>Foto:</b>
+  <%= image_tag @restaurante.foto.url(:thumb) %>
+</p>
+<%= link_to "Qualificar este restaurante", controller: "qualificacaos",
+            action: "new",
+            restaurante: @restaurante %>
+<%= comentarios @restaurante%>
+<%=novo_comentario @restaurante%>
+<%= link_to 'Editar', action: 'edit', id: @restaurante %>
+<%= link_to 'Voltar', action: 'index' %>
